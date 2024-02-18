@@ -5,13 +5,27 @@
     body {
       color: black;
     }
+    * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
   </style>
 </head>
 
 <body>
   <hr>
-  <img src="images/team.jpg" />
-  <hr>
+  <div class="imgbox">
+    <img class="center-fit" src="images/team.jpg">
+    </div>
   <h1 id="-meet-the-team-">👋 Meet the Team!</h1>
   <p>Welcome to the IRIBHM Computational Laboratory, a multidisciplinary team gathering researcher from computer
     science, mathematics, biology, and bioinformatics backgrounds.</p>
