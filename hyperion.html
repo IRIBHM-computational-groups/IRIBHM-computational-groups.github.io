@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <style>
+        body {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="-hyperion">💻 Hyperion</h1>
+    <p>Welcome to the heart of our lab&#39;s digital ecosystem! In this section, we&#39;ll describe the essential
+        components of our computing environment.</p>
+    <details>
+
+        <summary>What is Hyperion ? </summary>
+
+        Hyperion is an HPC cluster (High Performance Computing). A cluster is a network of connected computers, working
+        together to tackle complex tasks. It&#39;s like a digital powerhouse that amplifies our ability to process data
+        and run computationally intensive simulations.
+
+    </details>
+
+    <details>
+
+        <summary>How to connect to Hyperion?</summary>
+
+
+
+        Our cluster comprises five distinct servers, each with its own set of capabilities:
+        <ol>
+            <li>
+                <strong>Himm Server:</strong>
+                Packed with numerous CPUs, the Himm server is a computational powerhouse, although it doesn&#39;t
+                house GPUs. Ideal for CPU-intensive tasks, this server awaits your commands.
+                <p>URL command line : iribhm-himm01.hpda.ulb.ac.be</p>
+                <p>Jupyter Lab adress : <a
+                        href="http://iribhm-himm01.hpda.ulb.ac.be:8000/jupyter/hub/login">http://iribhm-himm01.hpda.ulb.ac.be:8000/jupyter/hub/login</a>
+                </p>
+            </li>
+            <li>
+                <strong>GPU01 Server:</strong>
+                Equipped with both CPUs and GPUs, GPU01 is your go-to for tasks that demand the parallel processing
+                might of graphical processing units.&#x20;
+                <p>URL command line : iribhm-gpu01.hpda.ulb.ac.be</p>
+                <p>Jupyter Lab adress : <a
+                        href="http://so-iribhm-gpu01.hpda.ulb.ac.be:8000/jupyter/hub/login">http://so-iribhm-gpu01.hpda.ulb.ac.be:8000/jupyter/hub/login</a>
+                </p>
+            </li>
+            <li>
+                <strong>GPU02 Server:</strong>
+                Similar to GPU01, this server boasts a combination of CPUs and GPUs, providing you with additional
+                resources for parallel computing.&#x20;
+                <p>URL command line : iribhm-gpu02.hpda.ulb.ac.be</p>
+                <p>Jupyter Lab adress : <a
+                        href="http://iribhm-gpu02.hpda.ulb.ac.be:8000/jupyter/hub/login">http://iribhm-gpu02.hpda.ulb.ac.be:8000/jupyter/hub/login</a>
+                </p>
+            </li>
+            <li>
+                <strong>GPU03 Server:</strong>
+                Another hub for combined CPU and GPU capabilities.
+                <p>URL command line : iribhm-gpu03.hpda.ulb.ac.be</p>
+                <p>Jupyter Lab adress : <a
+                        href="https://iribhm-gpu03.hpda.ulb.ac.be:8000/jupyter/hub/login">https://iribhm-gpu03.hpda.ulb.ac.be:8000/jupyter/hub/login</a>
+                </p>
+            </li>
+            <li>
+                <strong>Builder Server:</strong>
+                Dedicated to the construction of containers (a topic we&#39;ll delve into in the next sections), the
+                Builder server plays a crucial role in crafting environments tailored to your specific needs.
+                <p>URL command line : iribhm-builder.hpda.ulb.ac.be</p>
+                <p>Jupyter Lab adress : <a
+                        href="https://iribhm-gpu03.hpda.ulb.ac.be:8000/jupyter/hub/login">https://iribhm-builder.hpda.ulb.ac.be:8000/jupyter/hub/login</a>
+                </p>
+            </li>
+        </ol>
+        <p>To connect to one of these servers, first of all, you will need to connect to the ulb VPN Global Protect.
+            Connection steps are described in
+            <a
+                href="https://support.ulb.be/fr/web/support/-/comment-utiliser-ulb-vpn-">https://support.ulb.be/fr/web/support/-/comment-utiliser-ulb-vpn-</a>
+            Once connected to the VPN, different options are available to you:
+        </p>
+        <ul>
+            <li><strong>Connect through your command line interface</strong>
+                <br>
+                <code>ssh ulbid@&lt;url&gt;</code>
+                <br>
+                Your ulbid is the same as the one used to connect to the &quot;Virtual University&quot;.&#x20;
+                <br>
+                The URL depend on the server you want to connect to, as explained above.
+            </li>
+            <li><strong>Connect through the jupyter lab interface</strong> 
+                <br>
+                Just paste the link provided in your browser and connect with your ulb credentials.
+            </li>
+        </ul>
+
+    </details>
+
+</body>
+
+</html>
