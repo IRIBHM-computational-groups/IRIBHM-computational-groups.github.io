@@ -19,9 +19,10 @@ layout:
 
 # 👋 Meet the Team!
 
+{% raw %}
 {% hint style="info" %}
 Discover information about our team members, including their backgrounds and ongoing research. Take the opportunity to chat with them and learn more about what they're working on. Feel free to ask questions and start conversations — our team is friendly and happy to talk.
-{% endhint %}
+{% endraw %}
 
 ## Detours Vincent
 
