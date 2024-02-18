@@ -7,7 +7,10 @@ coverY: 0
 
 # 👋 Welcome to Computational Biology Lab Guide!
 
+{% raw %}
+{% hint style="info" %}
 This GitBook is your comprehensive guide to navigating in our lab. Whether you're a seasoned researcher or a newcomer you're in the right place!
+{% endraw %}
 
 For **new team members**, this space will be helpful during your first days with the team, to better learn about who we are and how we work.
 
