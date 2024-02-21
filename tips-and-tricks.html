@@ -1,41 +1,137 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <style>
-        body {
-            color: black;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Computational Biology Lab Guide</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+  * Template Name: Moderna
+  * Updated: Jan 29 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
-    <h1 id="-tips-tricks">🧠 Tips &amp; tricks</h1>
-    <p>A few essential tips for bioinformatics</p>
-    <h2 id="useful-commands">Useful commands</h2>
-    <p>Here is a list of useful commands that you&#39;ll find on most linux distributions. Feel free to question other
-        lab members about them or check their official documentation (google search, man command or --help argument).
-    </p>
-    <ul>
-        <li>htop (look at RAM and CPU usage)</li>
-        <li>nvidia-smi (look at GPU usage)</li>
-        <li>killall -u ${USER} (kill all your processes, to clean up)</li>
-        <li>kill (when a process stops responding, killall also works)</li>
-        <li>screen or tmux (terminal multiplexers, keep your processes running in background)</li>
-        <li>rsync or scp (transfer files or folders between machines)</li>
-        <li>chmod (define permissions for a file/folder)</li>
-        <li>df (statistics on disks)</li>
-        <li>du (evalutate folder/file size, do not use on /mnt/iribhm)</li>
-        <li>getfattr -n ceph.dir.rbytes /mnt/iribhm/blabla (evaluate size of folder on /mnt/iribhm)</li>
-    </ul>
-    <p>Here is an example of how to use the getfattr command to list the folder sizes in /mnt/iribhm :&#x20;</p>
-    <pre><code><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> $(<span class="hljs-keyword">ls</span> /mnt/iribhm); <span class="hljs-keyword">do</span> getfattr -n ceph.dir.rbytes /mnt/iribhm/$i; done
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <div class="logo">
+                <h1 class="text-light"><a href="index.html"><span>IRIBHM computational biology groups</span></a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="active " href="index.html">Home</a></li>
+                    <li class="dropdown"><a href="#"><span>About us</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="meet-the-team.html">👋 Meet the Team</a></li>
+                            <li><a href="meetings.html">📅 Meetings</a></li>
+                        </ul>
+                    <li class="dropdown"><a href="#"><span>Working in the lab</span> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="hyperion.html">💻 Hyperion</a></li>
+                            <li><a href="gcps.html">✅ GCPs</a></li>
+                            <li><a href="singularity-apptainer.html">📦 Singularity/Apptainer</a></li>
+                        </ul>
+                    <li class="dropdown"><a href="#"><span>Tips and tricks</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="newcomers.html">🟢 Newcomers checklist</a></li>
+                            <li><a href="parallelization.html">🐇 Parallelization</a></li>
+                            <li><a href="tips-and-tricks.html">🧠 Tips and tricks</a></li>
+                        </ul>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+    <main id="main">
+
+        <!-- ======= upband Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Tricks</h2>
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Tricks</li>
+                    </ol>
+                </div>
+
+            </div>
+        </section><!-- End upband Section -->
+
+        <section class="testimonials" data-aos="fade-up">
+            <div class="container">
+
+                <h2 id="useful-commands">Useful commands</h2>
+                <p>Here is a list of useful commands that you&#39;ll find on most linux distributions. Feel free to
+                    question
+                    other
+                    lab members about them or check their official documentation (google search, man command or --help
+                    argument).
+                </p>
+                <ul>
+                    <li>htop (look at RAM and CPU usage)</li>
+                    <li>nvidia-smi (look at GPU usage)</li>
+                    <li>killall -u ${USER} (kill all your processes, to clean up)</li>
+                    <li>kill (when a process stops responding, killall also works)</li>
+                    <li>screen or tmux (terminal multiplexers, keep your processes running in background)</li>
+                    <li>rsync or scp (transfer files or folders between machines)</li>
+                    <li>chmod (define permissions for a file/folder)</li>
+                    <li>df (statistics on disks)</li>
+                    <li>du (evalutate folder/file size, do not use on /mnt/iribhm)</li>
+                    <li>getfattr -n ceph.dir.rbytes /mnt/iribhm/blabla (evaluate size of folder on /mnt/iribhm)</li>
+                </ul>
+                <p>Here is an example of how to use the getfattr command to list the folder sizes in /mnt/iribhm :&#x20;
+                </p>
+                <pre><code><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> $(<span class="hljs-keyword">ls</span> /mnt/iribhm); <span class="hljs-keyword">do</span> getfattr -n ceph.dir.rbytes /mnt/iribhm/$i; done
 </code></pre>
-    <h2 id="speedup-your-ssh-connections">Speedup your ssh connections</h2>
-    <p>If you&#39;re not a jupyterlab addict you&#39;ll probably connect to hyperion with ssh a lot. Thus speeding up
-        that process will make you save lots of time down the line. The most obvious speedup will come from your
-        ${HOME}/.ssh/config file where you can define hostnames and a series of other variables for each host. Here is
-        an example of config file for hyperion VMs :&#x20;</p>
-    <pre><code># <span class="hljs-selector-tag">ULB</span> <span class="hljs-selector-tag">cluster</span> <span class="hljs-selector-tag">----------------------------------------------------------------------</span>
+                <h2 id="speedup-your-ssh-connections">Speedup your ssh connections</h2>
+                <p>If you&#39;re not a jupyterlab addict you&#39;ll probably connect to hyperion with ssh a lot. Thus
+                    speeding
+                    up
+                    that process will make you save lots of time down the line. The most obvious speedup will come from
+                    your
+                    ${HOME}/.ssh/config file where you can define hostnames and a series of other variables for each
+                    host. Here
+                    is
+                    an example of config file for hyperion VMs :&#x20;</p>
+                <pre><code># <span class="hljs-selector-tag">ULB</span> <span class="hljs-selector-tag">cluster</span> <span class="hljs-selector-tag">----------------------------------------------------------------------</span>
 <span class="hljs-selector-tag">Host</span> <span class="hljs-selector-tag">gpu01</span> <span class="hljs-selector-tag">gpu02</span> <span class="hljs-selector-tag">gpu03</span> <span class="hljs-selector-tag">himem</span>
     <span class="hljs-selector-tag">User</span> <span class="hljs-selector-tag">atourneu</span>
     <span class="hljs-selector-tag">ForwardX11</span> <span class="hljs-selector-tag">yes</span>
@@ -51,38 +147,143 @@
 <span class="hljs-selector-tag">Host</span> <span class="hljs-selector-tag">himem</span>
     <span class="hljs-selector-tag">Hostname</span> <span class="hljs-selector-tag">iribhm-himm01</span><span class="hljs-selector-class">.hpda</span><span class="hljs-selector-class">.ulb</span><span class="hljs-selector-class">.ac</span><span class="hljs-selector-class">.be</span>
 </code></pre>
-    <p>The other major speedup comes from ssh keys. They allow you to connect to the host in a more secure way, and you
-        can do it without being prompted for a password if you don&#39;t set a password when you create your keys. You
-        can easily find tutorials online to set up your ssh keys, here is an example :&#x20;</p>
-    <p><a
-            href="https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/">https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/</a>
-    </p>
-    <h2 id="configure-your-bashrc-profile">Configure your bashrc profile</h2>
-    <p>The file ${HOME}/.bashrc is automatically sourced every time you start a terminal. You can thus use it both to
-        define useful helper functions and variable, or semi-automate certain tasks. For instance if there&#39;s a
-        command you use very often you can define an alias for it :&#x20;</p>
-    <pre><code><span class="hljs-built_in">alias</span> csi=<span class="hljs-string">'cd /mnt/iribhm/software/singularity'</span>
+                <p>The other major speedup comes from ssh keys. They allow you to connect to the host in a more secure
+                    way, and
+                    you
+                    can do it without being prompted for a password if you don&#39;t set a password when you create your
+                    keys.
+                    You
+                    can easily find tutorials online to set up your ssh keys, here is an example :&#x20;</p>
+                <p><a
+                        href="https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/">https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/</a>
+                </p>
+                <h2 id="configure-your-bashrc-profile">Configure your bashrc profile</h2>
+                <p>The file ${HOME}/.bashrc is automatically sourced every time you start a terminal. You can thus use
+                    it both
+                    to
+                    define useful helper functions and variable, or semi-automate certain tasks. For instance if
+                    there&#39;s a
+                    command you use very often you can define an alias for it :&#x20;</p>
+                <pre><code><span class="hljs-built_in">alias</span> csi=<span class="hljs-string">'cd /mnt/iribhm/software/singularity'</span>
 <span class="hljs-built_in">alias</span> singuR=<span class="hljs-string">'singularity exec /mnt/iribhm/homes/atourneu/r_full.sif R'</span>
 </code></pre>
-    <p>A variable you need :&#x20;</p>
-    <pre><code>export PATH=<span class="hljs-variable">${</span>PATH}<span class="hljs-symbol">:/mnt/iribhm/software/bin</span>
+                <p>A variable you need :&#x20;</p>
+                <pre><code>export PATH=<span class="hljs-variable">${</span>PATH}<span class="hljs-symbol">:/mnt/iribhm/software/bin</span>
 </code></pre>
-    <p>A task you want to automate upon each terminal startup :&#x20;</p>
-    <pre><code><span class="hljs-keyword">chmod</span> -R <span class="hljs-number">750</span> ${HOME}
+                <p>A task you want to automate upon each terminal startup :&#x20;</p>
+                <pre><code><span class="hljs-keyword">chmod</span> -R <span class="hljs-number">750</span> ${HOME}
 <span class="hljs-keyword">chmod</span> <span class="hljs-number">600</span> ${HOME}/.ssh/*
 </code></pre>
-    <p>Here is how I backup my code with git :&#x20;</p>
-    <pre><code>eval $(ssh-agent)
+                <p>Here is how I backup my code with git :&#x20;</p>
+                <pre><code>eval $(ssh-agent)
 ssh-<span class="hljs-keyword">add</span><span class="bash"> <span class="hljs-variable">${HOME}</span>/.ssh/id_rsa.github
 </span>cd ${HOME}/scripts/
 git <span class="hljs-keyword">add</span><span class="bash"> -A
 </span>git commit -m <span class="hljs-string">"$(date)"</span>
 git push
 </code></pre>
-    <p>Automating storage checks to anticipate /mnt/iribhm saturation :&#x20;</p>
-    <pre><code>PERCENTIRIBHM=`df -k /mnt/iribhm | grep <span class="hljs-string">"/mnt/iribhm"</span> | awk <span class="hljs-string">'{print $(NF-1)}'</span>`
+                <p>Automating storage checks to anticipate /mnt/iribhm saturation :&#x20;</p>
+                <pre><code>PERCENTIRIBHM=`df -k /mnt/iribhm | grep <span class="hljs-string">"/mnt/iribhm"</span> | awk <span class="hljs-string">'{print $(NF-1)}'</span>`
 <span class="hljs-keyword">if</span> [ <span class="hljs-variable">${PERCENTIRIBHM::-1}</span> <span class="hljs-_">-gt</span> 95 ]; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">'### WARNING ### IRIBHM STORAGE HAS REACHED 95 PERCENT CAPACITY ### CLEANING IS ADVISED'</span>; <span class="hljs-keyword">fi</span>
 </code></pre>
+            </div>
+        </section>
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Useful links</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a href="https://www.ulb.be/">ULB</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="https://monulb.ulb.be">MonULB</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="https://iribhm.org/">IRIBHM</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="http://10.152.112.3:5000/">NAS</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a
+                                        href="https://elab.ulb.be/login.php">ElabFTW</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-links">
+                            <h4>Documentation</h4>
+                            <ul>
+                                <li><i class="bx bx-chevron-right"></i> <a
+                                        href="https://apptainer.org/docs/user/latest/">Apptainer</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a
+                                        href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">R
+                                        introduction</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a
+                                        href="https://www.biostars.org/t/Tutorials/">Biostars</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="http://www.sthda.com/french/">STHDA</a>
+                                </li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="https://satijalab.org/seurat/">Single
+                                        Cell Analysis</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-contact">
+                            <h4>Contact Us</h4>
+                            <p>
+                                Erasme Campus, Building C, CP602 <br>
+                                Route de Lennik 808 <br>
+                                Anderlecht, 1070<br>
+                                Belgium <br><br>
+                                <strong>Phone:</strong> +32 2 555 67 69<br>
+                                <strong>Email:</strong> GRP_iribhm.computational@ulb.be<br>
+                            </p>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-info">
+                            <h3>About our team</h3>
+                            <p>Our groups constitute a multidisciplinary team gathering researchers with backgrounds in
+                                computer science, mathematics, biology, and bioinformatics.</p>
+                            <div class="social-links mt-3">
+                                <a href="https://github.com/IRIBHM-computational-groups" class="github"><i
+                                        class="bx bxl-github"></i></a>
+                                <a href="mailto:GRP_iribhm.computational@ulb.be" class="gmail"><i
+                                        class="bx bxl-gmail"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Moderna</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </div>
+        </footer><!-- End Footer -->
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+        <script src="assets/vendor/aos/aos.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>

@@ -79,7 +79,7 @@
    </header><!-- End Header -->
    <main id="main">
 
-      <!-- ======= GCPs Section ======= -->
+      <!-- ======= upbar Section ======= -->
       <section class="breadcrumbs">
          <div class="container">
 
@@ -92,46 +92,50 @@
             </div>
 
          </div>
-      </section><!-- End Our Team Section -->
+      </section><!-- End upbar Section -->
 
       <!-- ======= content Section ======= -->
-      <div class="container">
-         <div class="section-title">
+      <section class="testimonials" data-aos="fade-up">
+         <div class="container">
             <h2>Good computational practices : working efficiently and reproducibly</h2>
-            When working in bioinformatics wrong practices can make you lose time, make other lose time or confidence in
+            When working in bioinformatics wrong practices can make you lose time, make other lose time or confidence
+            in
             your
             work, or even lead to disaster. To avoid these you must adopt good habits that include making backups,
             versioning
-            your code and adopting a coding style that will make it more readable for others ... or even yourself when
+            your code and adopting a coding style that will make it more readable for others ... or even yourself
+            when
             you
             have to read it again a few months later.
          </div>
-      </div>
 
-      <div class="container">
-         <div class="section-title">
+         <div class="container">
             <h2>Backups</h2>
             <p>The most obvious error leading to disaster is forgetting about backups.</p>
             <p>Please make backups.</p>
             <p>Please make backups.</p>
-            <p>The obvious candidate to backup your code is git versioning because it offers several other advantages.
+            <p>The obvious candidate to backup your code is git versioning because it offers several other
+               advantages.
                This
                is
-               described below. To backup your other files feel free to use any combination of method(s) that best suits
+               described below. To backup your other files feel free to use any combination of method(s) that best
+               suits
                your
                needs and preferences, e.g. :</p>
-            <p>1) The ULB provides 1TB of Onedrive storage and 20GB of Owncloud storage</p>
-            <p>2) Personal cloud storage</p>
-            <p>3) Manual backups on external disks</p>
-            <p>The IRIBHM mount directory is protected against hardware failure but not human errors. If you rm a file
+               <ul>
+                  <li>The ULB provides 1TB of Onedrive storage and 20GB of Owncloud storage</li>
+                  <li>Personal cloud storage</li>
+                  <li>Manual backups on external disks</li>
+               </ul>
+            <p>The IRIBHM mount directory is protected against hardware failure but not human errors. If you rm a
+               file
                there is
-               no trash to get it back from afterwards. You can create an alias for your rm command to make it ask for
+               no trash to get it back from afterwards. You can create an alias for your rm command to make it ask
+               for
                confirmation by default with the -i argument if you wish.</p>
          </div>
-      </div>
 
-      <div class="container">
-         <div class="section-title">
+         <div class="container">
             <h2>Git versioning</h2>
             <h3 id="why-using-git-">Why using git ?</h3>
             <p>Regular backup methods are not the most efficient way to handle your code. For instance the iterative
@@ -143,17 +147,21 @@
                method
                A was actually better for a reason you couldn&#39;t envision early on. Without code versioning deleted
                segments of
-               code are lost and you&#39;ll have to do the work twice. With code versioning you can just go back to the
+               code are lost and you&#39;ll have to do the work twice. With code versioning you can just go back to
+               the
                commit
                containing method A and carry on.</p>
-            <p>On top of code versioning, using github will also allow you to share your code and collaborate on shared
+            <p>On top of code versioning, using github will also allow you to share your code and collaborate on
+               shared
                projects
-               with the rest of the team seamlessly. The commit/backup process can be automated if you wish and pushing
+               with the rest of the team seamlessly. The commit/backup process can be automated if you wish and
+               pushing
                to
                the
                team&#39;s github constitutes an effective form of cloud backups.</p>
             <h3 id="what-is-git-">What is git ?</h3>
-            <p>Git is an open source software of distributed version control. It allows to track changes and variants of
+            <p>Git is an open source software of distributed version control. It allows to track changes and variants
+               of
                your
                code and synchronize it between different directories, called repositories. It is the most widely used
                software
@@ -162,13 +170,16 @@
                machine
                or a cloud server.</p>
             <p>Here is the git project&#39;s web page : <a href="https://git-scm.com/">https://git-scm.com/</a></p>
-            <p>It is very often used with a cloud-based storage that serve as a central point to share the modifications
+            <p>It is very often used with a cloud-based storage that serve as a central point to share the
+               modifications
                across
-               machines. One of the most popular hosting solution is github, and it is the solution chosen by the team.
+               machines. One of the most popular hosting solution is github, and it is the solution chosen by the
+               team.
                Github
                allows you to create an account and credentials to access and store your code safely, to create groups
                (called
-               organizations) to share code between multiple user accounts, and to consult your code or any public code
+               organizations) to share code between multiple user accounts, and to consult your code or any public
+               code
                on
                their
                website.</p>
@@ -180,40 +191,45 @@
                more
                about
                git.</p>
-            <p>Git is already installed on the hyperion VMs, so all you have to do is configure your profile, configure
+            <p>Git is already installed on the hyperion VMs, so all you have to do is configure your profile,
+               configure
                your
                repos (if they are not already configured by someone else), and follow this sequence to share your
                modifications
                :&#x20;</p>
-            <p>git add</p>
-            <p>git commit</p>
-            <p>git push</p>
+               <ol>
+                  <li>git add</li>
+                  <li>git commit</li>
+                  <li>git push</li>
+               </ol>
             <p>Checkout the tips &amp; tricks sections for example ways to automate this process.</p>
             <p>If you want to share a repository with the team when you set it up all you have to do is to point it
                towards
                the
-               group&#39;s github page instead of your own. When working with github the preferred authentication method
+               group&#39;s github page instead of your own. When working with github the preferred authentication
+               method
                are ssh
                keys, and github has a tutorial explaining how to set them up : <a
                   href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a>
             </p>
-            <p>When you want to pull or push don&#39;t forget that the way you write the repo&#39;s address implies the
+            <p>When you want to pull or push don&#39;t forget that the way you write the repo&#39;s address implies
+               the
                way
                you
                want to connect to it. If you want to use ssh you need to copy-paste the ssh-dedicated address, e.g. :
                git@github.com:IRIBHM-computational-groups/container-definition-files.git</p>
          </div>
-      </div>
 
-      <div class="container">
-         <div class="section-title">
+         <div class="container">
             <h2>Coding style</h2>
             <p>Coding styles are a way to format your code so that it is easily readable and understandable both by
                others
                ...
-               and yourself down the line. It consists of some very simple rules on the way a variable/function/constant
+               and yourself down the line. It consists of some very simple rules on the way a
+               variable/function/constant
                should
-               be named, how the code should be commented, etc. To benefit the most from it, the ideal would be for the
+               be named, how the code should be commented, etc. To benefit the most from it, the ideal would be for
+               the
                whole
                team to adopt the same coding styles in order to maximize the code&#39;s readability by the team as a
                whole.
@@ -223,7 +239,7 @@
                   href="http://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html">http://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html</a>
             </p>
          </div>
-      </div>
+      </section>
 
    </main><!-- End #main -->
 
