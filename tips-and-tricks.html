@@ -119,8 +119,8 @@
                 </ul>
                 <p>Here is an example of how to use the getfattr command to list the folder sizes in /mnt/iribhm :&#x20;
                 </p>
-                <pre><code><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> $(<span class="hljs-keyword">ls</span> /mnt/iribhm); <span class="hljs-keyword">do</span> getfattr -n ceph.dir.rbytes /mnt/iribhm/$i; done
-</code></pre>
+                <code>for i in $(ls /mnt/iribhm); do getfattr -n ceph.dir.rbytes /mnt/iribhm/$i; done</code>
+
                 <h2 id="speedup-your-ssh-connections">Speedup your ssh connections</h2>
                 <p>If you&#39;re not a jupyterlab addict you&#39;ll probably connect to hyperion with ssh a lot. Thus
                     speeding
@@ -157,6 +157,7 @@
                 <p><a
                         href="https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/">https://www.cyberciti.biz/faq/how-to-set-up-ssh-keys-on-linux-unix/</a>
                 </p>
+
                 <h2 id="configure-your-bashrc-profile">Configure your bashrc profile</h2>
                 <p>The file ${HOME}/.bashrc is automatically sourced every time you start a terminal. You can thus use
                     it both
@@ -164,28 +165,25 @@
                     define useful helper functions and variable, or semi-automate certain tasks. For instance if
                     there&#39;s a
                     command you use very often you can define an alias for it :&#x20;</p>
-                <pre><code><span class="hljs-built_in">alias</span> csi=<span class="hljs-string">'cd /mnt/iribhm/software/singularity'</span>
-<span class="hljs-built_in">alias</span> singuR=<span class="hljs-string">'singularity exec /mnt/iribhm/homes/atourneu/r_full.sif R'</span>
-</code></pre>
-                <p>A variable you need :&#x20;</p>
-                <pre><code>export PATH=<span class="hljs-variable">${</span>PATH}<span class="hljs-symbol">:/mnt/iribhm/software/bin</span>
-</code></pre>
-                <p>A task you want to automate upon each terminal startup :&#x20;</p>
-                <pre><code><span class="hljs-keyword">chmod</span> -R <span class="hljs-number">750</span> ${HOME}
-<span class="hljs-keyword">chmod</span> <span class="hljs-number">600</span> ${HOME}/.ssh/*
-</code></pre>
-                <p>Here is how I backup my code with git :&#x20;</p>
-                <pre><code>eval $(ssh-agent)
-ssh-<span class="hljs-keyword">add</span><span class="bash"> <span class="hljs-variable">${HOME}</span>/.ssh/id_rsa.github
-</span>cd ${HOME}/scripts/
-git <span class="hljs-keyword">add</span><span class="bash"> -A
-</span>git commit -m <span class="hljs-string">"$(date)"</span>
-git push
-</code></pre>
+                    <code>alias csi='cd /mnt/iribhm/software/singularity'</code>
+                    <code>alias singuR='singularity exec /mnt/iribhm/homes/atourneu/r_full.sif R'</code>
+                <p>A variable you need :</p>
+                <code>export PATH=${PATH}:/mnt/iribhm/software/bin</code>
+                <p>A task you want to automate upon each terminal startup :</p>
+                <code>chmod -R 750 ${HOME}</code>
+                <br>
+                <code>chmod 600 ${HOME}/.ssh/*</code>
+                <p>Here is how I backup my code with git :</p>
+                <code>eval $(ssh-agent)</code><br>
+                <code>ssh-add ${HOME}/.ssh/id_rsa.github</code><br>
+                <code>cd ${HOME}/scripts/</code><br>
+                <code>git add -A</code><br>
+                <code>git commit -m "$(date)"</code><br>
+                <code>git push</code>
                 <p>Automating storage checks to anticipate /mnt/iribhm saturation :&#x20;</p>
-                <pre><code>PERCENTIRIBHM=`df -k /mnt/iribhm | grep <span class="hljs-string">"/mnt/iribhm"</span> | awk <span class="hljs-string">'{print $(NF-1)}'</span>`
-<span class="hljs-keyword">if</span> [ <span class="hljs-variable">${PERCENTIRIBHM::-1}</span> <span class="hljs-_">-gt</span> 95 ]; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">'### WARNING ### IRIBHM STORAGE HAS REACHED 95 PERCENT CAPACITY ### CLEANING IS ADVISED'</span>; <span class="hljs-keyword">fi</span>
-</code></pre>
+                <code>PERCENTIRIBHM=`df -k /mnt/iribhm | grep "/mnt/iribhm" | awk '{print $(NF-1)}'`</code><br>
+                <code>if [ ${PERCENTIRIBHM::-1} -gt 95 ]; then echo '### WARNING ### IRIBHM STORAGE HAS REACHED 95 PERCENT CAPACITY ### CLEANING IS ADVISED'; fi</code>
+
             </div>
         </section>
 
