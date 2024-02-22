@@ -1,6 +1,4 @@
-Thanks for downloading this template!
+The groups' documentation website is accessible at https://iribhm-computational-groups.github.io/
 
-Template Name: Moderna
-Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
-Author: BootstrapMade.com
+The Moderna template was used to create it. This template is available at : https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
 License: https://bootstrapmade.com/license/
