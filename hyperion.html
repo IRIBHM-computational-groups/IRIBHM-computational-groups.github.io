@@ -116,7 +116,7 @@
                                 Packed with numerous CPUs, the Himm server is a computational powerhouse, although it
                                 doesn&#39;t house GPUs. Ideal for CPU-intensive tasks.
                                 <br>
-                                JupyterLab adress : http://iribhm-himm01.hpda.ulb.ac.be:8000/jupyter/hub/login
+                                <a href="http://iribhm-himm01.hpda.ulb.ac.be:8000/jupyter/hub/login">Jupyter Lab link</a>
                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
                         </div>
@@ -131,7 +131,7 @@
                                 processing
                                 might of graphical processing units.
                                 <br>
-                                Jupyter Lab adress : http://iribhm-gpu01.hpda.ulb.ac.be:8000/jupyter/hub/login
+                                <a href="http://iribhm-gpu01.hpda.ulb.ac.be:8000/jupyter/hub/login">Jupyter Lab link</a>
                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
                         </div>
@@ -146,7 +146,7 @@
                                 additional
                                 resources for parallel computing.
                                 <br>
-                                Jupyter Lab adress : http://iribhm-gpu02.hpda.ulb.ac.be:8000/jupyter/hub/login
+                                <a href="http://iribhm-gpu02.hpda.ulb.ac.be:8000/jupyter/hub/login">Jupyter Lab link</a>
                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
                         </div>
@@ -159,7 +159,7 @@
                                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                 Another hub for combined CPU and GPU capabilities.
                                 <br>
-                                Jupyter Lab adress : http://iribhm-gpu03.hpda.ulb.ac.be:8000/jupyter/hub/login
+                                <a href="http://iribhm-gpu03.hpda.ulb.ac.be:8000/jupyter/hub/login">Jupyter Lab link</a>
                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
                         </div>
@@ -190,7 +190,9 @@
                     <a
                         href="https://support.ulb.be/fr/web/support/-/comment-utiliser-ulb-vpn-">https://support.ulb.be/fr/web/support/-/comment-utiliser-ulb-vpn-</a>
                     <br>
-                    Once connected to the VPN, different options are available to you:
+                    Once connected to the VPN, different options are available to you as listed below. Keep in mind that notebooks such as jupyter are designed to facilitate 
+                    exploratory data analysis mixing code, outputs and comments. When running resource-intensive tasks or heavy pipelines that are designed to produce defined 
+                    results without user inputs, terminal multiplexers such as screen or tmux should be preferred.
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-lg-6 d-flex align-items-stretch" data-aos="fade-up">
@@ -212,6 +214,37 @@
                                     connect with your ulb credentials.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <h2>Working together on hyperion</h2>
+                        As explained above each of the five virtual machines were designed with specific purposes in mind. 
+                        The builder is not meant to run code. The GPU machines can run CPU tasks but priority should be given to GPU tasks on those VMs.
+                        <br>
+                        For resource intensive jobs, remember to use the <code>nice</code> command to lower the priority of your process. 
+                        This will allow others to connect to the server and use some of its resources.
+                        If you forgot to do so, you can still use the <code>renice</code> command.
+                        <br>
+                        Most resource intensive functions come with arguments to explicitly specify the number of threads and memory space you want to use. 
+                        In addition to using those arguments properly, there are also langage-specific ways to avoid excessive resource usage.
+                        <br>
+                        For Python you can use this code at the beginning of your scripts :
+                        <br>
+                        <code>import os </code>
+                        <br>
+                        <code>os.environ["OMP_NUM_THREADS"] = "10" # export OMP_NUM_THREADS=4</code>
+                        <br>
+                        <code>os.environ["OPENBLAS_NUM_THREADS"] = "10" # export OPENBLAS_NUM_THREADS=4</code>
+                        <br>
+                        <code>os.environ["MKL_NUM_THREADS"] = "10" # export MKL_NUM_THREADS=4</code>
+                        <br>
+                        <code>os.environ["VECLIB_MAXIMUM_THREADS"] = "10" # export VECLIB_MAXIMUM_THREADS=4</code>
+                        <br>
+                        <code>os.environ["NUMEXPR_NUM_THREADS"] = "10" # export NUMEXPR_NUM_THREADS=4</code>
+                        <br>
+                        For R you can add the <code>unix</code> package to your containers and use the <code>rlimit_as</code> and <code>rlimit_nproc</code> 
+                        functions with the <code>cur</code> argument. Those will interupt a function if it gets too greedy without killing the whole process.
                     </div>
                 </div>
             </div>

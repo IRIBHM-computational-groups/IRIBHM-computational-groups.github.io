@@ -112,7 +112,43 @@
             href="https://apptainer.org/documentation/">https://apptainer.org/documentation/</a></p>
         <p>To verify the version currently installed on Hyperion you can use the command :</p>
         <p><code>apptainer --version</code></p>
-        <h2 id="how-to-use-singularity-containers-">How to use singularity containers ?</h2>
+        <h2 id="quick_start">Quickstart example</h2>
+        The machine to build containers can be accessed with :
+        <br>
+        <code>ssh your_login@iribhm-builder.hpda.ulb.ac.be</code>
+        <br>
+        Importantly, this virtual machine is not for compute and it has small storage, so clean up you homedir after use.
+        <br>
+        Once logged on this machine we build containers with apptainer, formerly singularity.
+        <br>
+        First, you need a sandbox. It can be build from an existing apptainer container image, container_name.sif, with
+        <br>
+        <code>sudo apptainer build --sandbox container_name container_name.sif</code> 
+        <br>
+        Note that an image (sif file) can be created from an online docker container, e.g.
+        <br>
+        <code>sudo apptainer build rapidsai-22.06.sif docker://rapidsai/rapidsai-core:22.06-cuda11.5-runtime-ubuntu20.04-py3.9</code>
+        <br>
+        Once you’ve got your sandbox you can run it in writable mode with
+        <br>
+        <code>sudo apptainer shell --writable container_name</code>
+        <br>
+        Any install in this mode will be preserved. A good practice is to log every command you type in a .def file in order to automatically rebuild the VM later if needed. 
+        For an example of def file with install from within R, look at the example in /mnt/iribhm/software/singularity/r_full.def 
+        <br>
+        To use the container in the actual compute environment, you need to build an image with
+        <br>
+        <code>sudo apptainer build container_name.sif container_name</code>
+        <br>
+        Then copy it to the desired hyperion folder with rcp or rsync.
+        <br>
+        To run code in the container log to any of our hyperion servers and run
+        <br>
+        <code>apptainer shell --nv -B /mnt/scratch:/mnt/scratch /mnt/iribhm/software/singularity/container_name.sif</code>
+        <br>
+        This will take you inside the container with all the packages you’ve installed readily available! It will work on hyperion but also any hardware with apptainer installed.
+
+        <h2 id="how-to-use-singularity-containers-">Long format - How to use singularity containers ?</h2>
         <p>The containers can be used either via the command line or through the jupyterlab web interface. To use them
           through
           jupyterlab just connect to the URL of your desired VM and click on the container you need when starting a new
@@ -123,7 +159,7 @@
             href="https://apptainer.org/docs/user/latest/quick\_start.html#interacting-with-images">https://apptainer.org/docs/user/latest/quick_start.html#interacting-with-images</a>
         </p>
         <p>They can of course also be used in tmux or screen sessions .</p>
-        <h2 id="how-to-build-singularity-containers-">How to build singularity containers ?</h2>
+        <h2 id="how-to-build-singularity-containers-">Long format - How to build singularity containers ?</h2>
         <h3 id="creating-a-new-container-on-the-builder-vm">Creating a new container on the builder VM</h3>
         <p>Containers are built on the builder VM using the &quot;apptainer build&quot; command. You always build a new
           container upon a pre-existing one, whether it is online or from one of yours. The proper way to build
