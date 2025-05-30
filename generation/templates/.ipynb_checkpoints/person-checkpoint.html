@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}People{% endblock %}
+{% block content %}
+<div class="profile_pic">
+    <img height=100 src="static/images/people/{{person.image}}" alt="">
+
+    <h3>{{person.name}} • {{person.position}}</h3>
+</div>
+
+<div class="text">
+    <h3>Research</h3>
+    <p>{{person.research}}</p>
+    
+    <h3>Biography</h3>
+    <p>{{person.bio}}</p>
+    
+    <h3>Publications</h3>
+    {% for publication in publications %}
+
+	<div class='publication'>
+	    <h4>{{publication.title}}</h4>
+	    <i>{{publication.journal}}</i>
+	</div>
+    
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

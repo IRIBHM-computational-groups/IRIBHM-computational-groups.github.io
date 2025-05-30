@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+  
+{% block title %}Publications{% endblock %}
+{% block content %}
+<div class="publications">
+    {% for author, author_pubs in publications.items() %}
+    <h3>{{ author }}</h3>
+    	{% for pub in author_pubs %}
+        <div class="publication">
+            <h4>{{ pub.title }}</h4>
+            <i>{{ pub.journal }}</i>
+            <span class="year">{{ pub.year }}</span>
+        </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}

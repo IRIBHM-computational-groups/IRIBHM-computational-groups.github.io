@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}People{% endblock %}
+
+{% block content %}
+<div class="people">
+    {% for person in person %}
+    <div class="person">
+        <a href='{{ person.abrev }}.html'>
+            <img height="100" src="static/images/people/{{ person.image }}" alt="{{ person.name }}">
+        </a>
+        <a class="name" href="{{ person.abrev }}.html">{{ person.name }}</a>
+        <div class="position">{{ person.position }}</div>
+
+        <div class="background">
+            {% for label, emoji in person.background %}
+                <span title="{{ label }}">{{ emoji }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

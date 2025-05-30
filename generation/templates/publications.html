@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}Publications{% endblock %}
+
+{% block content %}
+<div class="publications">
+    {% for pub in publications %}
+    <div class="publication" style="margin-bottom: 0.5em;">
+        <a href="{{ pub.doi }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
+        &nbsp;&mdash;&nbsp;{{ pub.year }}
+        &nbsp;&mdash;&nbsp;<i>{{ pub.journal }}</i>
+        {% if pub.person %}
+          &nbsp;(<small>{{ pub.person }}</small>)
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

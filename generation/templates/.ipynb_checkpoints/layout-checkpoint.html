@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="page">
+
+        <div class="header">
+            <div class="title">
+                <span>
+                    <h1>
+                        Computational Biology Labs
+                        @ <a href="https://iribhm.org/">IRIBHM</a>
+                    </h1>
+                </span>
+            </div>
+
+            <div class="menu">
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="people.html">People</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="guidelines.html">Guidelines</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+        {% block content %}{% endblock %}
+        </div>
+
+
+        <div class="footer">
+
+            <div class="logos">
+        
+                <img width=150 src="static/images/logos/iribhm.jpg" alt="">
+        
+                <img width=150 src="static/images/logos/televie.png" alt="">
+        
+                <img width=150 src="static/images/logos/fnrs.png" alt="">
+        
+            </div>
+        
+        </div>
+
+
+    </div>
+</body>
+</html>

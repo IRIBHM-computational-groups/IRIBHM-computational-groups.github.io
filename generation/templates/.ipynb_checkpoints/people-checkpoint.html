@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}People{% endblock %}
+
+{% block content %}
+<div class="people">
+    {% for person in person %}
+
+    <div class="person">
+        <img height="100" src="static/images/people/{{ person.image }}" alt="{{ person.name }}">
+                
+        <a class="name" href="{{ person.abrev }}.html">{{ person.name }}</a>
+        <div class="position">{{ person.position }} </div>
+    </div>
+    
+    {% endfor %}
+</div>
+{% endblock %}

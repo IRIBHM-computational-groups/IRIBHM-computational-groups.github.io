@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Guidelines{% endblock %}
+
+{% block content %}
+<div class="vertical">
+    <a style='font-size:20px' href="SAFE.docx">Download as DOCX</a>
+    {{ doc_html | safe}}
+
+</div>
+
+{% endblock %}
+
