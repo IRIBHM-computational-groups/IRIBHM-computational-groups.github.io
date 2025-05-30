@@ -9,4 +9,4 @@ Here are our dependencies:
 
 The notebook to generate the website is located at `generation/generate_pages.ipynb`.
 
-Further, the `static/` folder contains our stylesheet as well as all images (logos, profile pictures). 
+Further, the `static/` folder contains our stylesheet as well as all images (logos, profile pictures).  
