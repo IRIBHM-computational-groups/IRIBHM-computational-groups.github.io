@@ -10,14 +10,11 @@ def linkify_names(df):
                 continue
 
             for name in names:
-                if name == row['name']:  # skip linking to self
+                if name == row['name']: 
                     continue
-                # Word boundary match to avoid partial replacements
                 pattern = r'\b' + re.escape(name) + r'\b'
                 if re.search(pattern, text):
                     replacement = f"<a href='{name_to_abrev[name]}.html'>{name}</a>"
                     text = re.sub(pattern, replacement, text)
             df.at[idx, field] = text
     return df
-
-# Apply the function
