@@ -1,9 +1,5 @@
 import requests
 import pandas as pd
-import requests
-import pandas as pd
-import requests
-import pandas as pd
 
 def get_author_works(author_name, max_results=100):
     url = "https://api.openalex.org/authors"
