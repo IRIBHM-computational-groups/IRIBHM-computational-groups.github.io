@@ -1,13 +1,82 @@
 {% extends "layout.html" %}
 
-{% block title %}Guidelines{% endblock %}
+{% block title %}Lab guidelines{% endblock %}
 
 {% block content %}
-<div class="vertical">
-    <a style='font-size:20px' href="SAFE.docx">Download as DOCX</a>
-    {{ doc_html | safe}}
+<div class="guidelines">
 
+    <div class="doc-header">
+        <div>
+            <p class="eyebrow">Our commitments</p>
+            <p class="doc-intro">
+                Our labs follow the <a href="https://github.com/SAFE-Labs-Docs/Lab-Handbook">SAFE
+                handbook</a>, a set of public commitments on how a research group is run:
+                how we work together, how careers are supported, and what every member can
+                expect. This page is the version we commit to.
+            </p>
+        </div>
+        <a class="pill" href="SAFE.docx" download>Download as DOCX</a>
+    </div>
+
+    <div class="doc-layout">
+
+        <nav class="doc-toc" aria-label="Table of contents">
+            <p class="toc-title">On this page</p>
+            <ol>
+                {% for section in toc %}
+                <li>
+                    <a href="#{{ section.id }}">{{ section.title }}</a>
+                    {% if section.children %}
+                    <ul>
+                        {% for child in section.children %}
+                        <li><a href="#{{ child.id }}">{{ child.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ol>
+        </nav>
+
+        <article class="doc-body">
+            {{ doc_html | safe }}
+        </article>
+
+    </div>
 </div>
-
 {% endblock %}
 
+{% block scripts %}
+<script>
+// Highlight the table-of-contents entry for the section currently on screen.
+(function () {
+    const toc = document.querySelector('.doc-toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+
+    const links = new Map();
+    toc.querySelectorAll('a[href^="#"]').forEach(a => links.set(a.hash.slice(1), a));
+
+    const headings = Array.from(document.querySelectorAll('.doc-body [id]'))
+                          .filter(h => links.has(h.id));
+    let visible = new Set();
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => e.isIntersecting ? visible.add(e.target.id)
+                                              : visible.delete(e.target.id));
+        const current = headings.find(h => visible.has(h.id));
+        links.forEach(a => a.classList.remove('is-current'));
+        if (current) {
+            const a = links.get(current.id);
+            a.classList.add('is-current');
+            // Keep the active entry in view in a long, scrollable list
+            const box = a.getBoundingClientRect(), nav = toc.getBoundingClientRect();
+            if (box.top < nav.top || box.bottom > nav.bottom) {
+                a.scrollIntoView({ block: 'nearest' });
+            }
+        }
+    }, { rootMargin: '-80px 0px -70% 0px' });
+
+    headings.forEach(h => observer.observe(h));
+})();
+</script>
+{% endblock %}

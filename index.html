@@ -27,38 +27,157 @@
                     <li><a href="people.html">People</a></li>
                     <li><a href="publications.html">Publications</a></li>
                     <li><a href="guidelines.html">Guidelines</a></li>
+                    <li><a href="hpc.html">HPC</a></li>
                 </ul>
             </div>
         </div>
         <div class="content">
         
-<div class="vertical">
-        <div class="horizontal">
+<div class="home">
 
-                  <img class="homeimg" src="static/images/durbuy.jpg" alt="durbuy 2024">
+    <!-- ===================== Intro + photo carousel ===================== -->
+    <section class="hero">
 
-            <p>We are a computational biology lab with a small wet lab component,
-                nurturing strong expertise in generating and analysing human ’omics 
-                data related to somatic evolution, cancer development and progression. <br> <br>
-                Our groups constitute a multidisciplinary team gathering researchers with 
-                backgrounds in computer science, mathematics, biology, and bioinformatics.
-           </p>
+     <div class="carousel" id="home-carousel" aria-roledescription="carousel" aria-label="Lab photos">
+            <div class="carousel-track">
+                <figure class="carousel-slide is-active">
+                    <img src="static/images/home_4.png" alt="Lac de l'eau d'heure, 2026">
+                    <figcaption>Lac de l'eau d'heure, 2026</figcaption>
+                </figure>
+                <figure class="carousel-slide">
+                    <img src="static/images/home_2.png" alt="Heidelberg, 2023">
+                    <figcaption>Heidelberg, 2023</figcaption>
+                </figure>
+                <figure class="carousel-slide">
+                    <img src="static/images/durbuy.jpg" alt="Durbuy, 2024">
+                    <figcaption>Durbuy, 2024</figcaption>
+                </figure>
+                <figure class="carousel-slide">
+                    <img src="static/images/home_3.jpeg" alt="Zeeland, 2025">
+                    <figcaption>Zeeland, 2025</figcaption>
+                </figure>
+            </div>
+
+            <button class="carousel-btn prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="carousel-btn next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="carousel-dots" role="tablist" aria-label="Choose photo"></div>
         </div>
-	<br>	<br>	<br>
-        <div class="vertical">
-            <h1>Research axes</h1>
-            <ul>
-                <li><b>Thyroid cancer</b>: PTC, ATC, MTC, post-chernobyl PTC, organoid models - somatic evolution</li>
-                <li><b>Cancer transcriptomics</b>: cancer gene signatures - editing - spatial and single nuclei - pancreas clinical signatures</li>
-                <li><b>Microanatomy</b> and <b>histopathology</b> with <b>AI</b>: histome atlas, CODA/VALIS pipeline </li>
-                <li><b>Cancer genomics</b> & <b>somatic evolution</b>: mutation calling - copy-number calling - mutation timing - 3D growth modelling + cancer genetics (Li Fraumeni - Xeroderma Pigmentosum in Tanzania) - XP skin lesions</li>   
-            </ul>
-        </div>
-           
-        
 
+        <div class="hero-text">
+            <p class="eyebrow">Computational biology · Cancer · Somatic evolution</p>
+            <h2 class="hero-title">Reading the history of tumours from their DNA, RNA and tissue morphology</h2>
+            <p>
+                We are a computational biology lab with a small wet-lab component, based at the
+                IRIBHM Jacques E. Dumont (ULB, Brussels). We generate and analyse human
+                ’omics data to understand how normal cells accumulate changes, how cancers
+                arise from them, and how tumours evolve as they progress and respond to treatment.
+            </p>
+            <p>
+                Our team brings together researchers trained in computer science, mathematics,
+                biology and bioinformatics. We combine new algorithms, statistical modelling and
+                machine learning with close collaborations with clinicians and pathologists, so that
+                our methods stay anchored in real patient material and real clinical questions.
+            </p>
+            <div class="hero-links">
+                <a class="pill" href="people.html">Meet the team</a>
+                <a class="pill pill-outline" href="publications.html">Our publications</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== Research axes ===================== -->
+    <section class="research">
+        <h1>Research axes</h1>
+        <p class="section-intro">
+            Our work is organised around four complementary axes that share data, methods and people.
+            Many projects sit at the crossroads of two or more of them.
+        </p>
+
+        <div class="axis-grid">
+
+            <article class="axis-card">
+                <div class="axis-icon" aria-hidden="true">🦋</div>
+                <h3>Thyroid cancer</h3>
+                <p>
+                    Thyroid cancers span a remarkable range of behaviours, from indolent papillary
+                    carcinomas (PTC) to some of the most aggressive human tumours, anaplastic
+                    carcinomas (ATC), as well as medullary carcinomas (MTC). We study how these
+                    tumours evolve, including radiation-induced PTC arising after Chernobyl, and
+                    use patient-derived organoid models to connect genomic changes to cell behaviour.
+                </p>
+                <ul class="tags">
+                    <li>PTC · ATC · MTC</li><li>Post-Chernobyl PTC</li><li>Organoids</li><li>Somatic evolution</li>
+                </ul>
+            </article>
+
+            <article class="axis-card">
+                <div class="axis-icon" aria-hidden="true">🧬</div>
+                <h3>Cancer transcriptomics</h3>
+                <p>
+                    Gene expression tells us what tumour cells are actually doing. We build and
+                    evaluate cancer gene signatures, study RNA editing, and work with spatial and
+                    single-nucleus transcriptomics to resolve how cell states are organised within
+                    a tumour. Part of this work aims at clinically useful signatures, notably in
+                    pancreatic cancer.
+                </p>
+                <ul class="tags">
+                    <li>Gene signatures</li><li>RNA editing</li><li>Spatial &amp; single-nucleus</li><li>Pancreatic cancer</li>
+                </ul>
+            </article>
+
+            <article class="axis-card">
+                <div class="axis-icon" aria-hidden="true">🔬</div>
+                <h3>Microanatomy &amp; AI histopathology</h3>
+                <p>
+                    Tissue architecture holds information that sequencing alone misses. We use
+                    deep learning and image registration to reconstruct tissues in 3D from serial
+                    histology sections (building on the CODA and VALIS pipelines), with the goal of
+                    a “histome” atlas that maps cell types and structures across entire tissue volumes.
+                </p>
+                <ul class="tags">
+                    <li>Deep learning</li><li>3D reconstruction</li><li>CODA / VALIS</li><li>Histome atlas</li>
+                </ul>
+            </article>
+
+            <article class="axis-card">
+                <div class="axis-icon" aria-hidden="true">🧮</div>
+                <h3>Cancer genomics &amp; somatic evolution</h3>
+                <p>
+                    Every tumour genome carries a record of its past. We develop methods to call
+                    mutations and copy-number changes, time them relative to one another, and model
+                    how tumours grow in 3D. We also study inherited cancer predisposition, including
+                    Li-Fraumeni syndrome and xeroderma pigmentosum and its skin lesions in Tanzania.
+                </p>
+                <ul class="tags">
+                    <li>Mutation &amp; CNA calling</li><li>Mutation timing</li><li>3D growth models</li><li>Li-Fraumeni · XP</li>
+                </ul>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ===================== How we work ===================== -->
+    <section class="approach">
+        <h1>How we work</h1>
+        <div class="approach-grid">
+            <div>
+                <h3>Data, from bench to algorithm</h3>
+                <p>Our small wet lab lets us generate the data our questions require, rather than
+                   relying only on public resources, and keeps analysts close to the biology.</p>
+            </div>
+            <div>
+                <h3>Methods that others can use</h3>
+                <p>We aim to release reproducible, well-documented code and pipelines, and we run our
+                   analyses on our shared high-performance computing infrastructure.</p>
+            </div>
+            <div>
+                <h3>A place to learn</h3>
+                <p>Newcomers are paired with a tutor and onboarded with shared guidelines and <a href="hpc.html">HPC documentation</a>. Interested in
+                   joining? Get in touch with one of our <a href="people.html">group leaders</a>.</p>
+            </div>
+        </div>
+    </section>
 </div>
-
 
         </div>
 
@@ -76,6 +195,9 @@
                 <a href="https://www.frs-fnrs.be/fr/">
                     <img width=100 src="static/images/logos/fnrs.png" alt="Logo FNRS">
                 </a>
+                <a href="https://welbio.org">
+                    <img width=100 src="static/images/logos/welbio.jpg" alt="Logo WELBIO">
+                </a>
                 <a href="https://cancer.be">
                     <img width=100 src="static/images/logos/fcc.png" alt="Logo fondation contre le cancer">
                 </a>
@@ -86,5 +208,71 @@
 
 
     </div>
+    
+<script>
+(function () {
+    const root = document.getElementById('home-carousel');
+    if (!root) return;
+
+    const slides = Array.from(root.querySelectorAll('.carousel-slide'));
+    const dotsBox = root.querySelector('.carousel-dots');
+    const INTERVAL_MS = 5000;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0;
+    let timer = null;
+
+    // One dot per slide
+    const dots = slides.map((_, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Show photo ' + (i + 1));
+        b.addEventListener('click', () => { show(i); restart(); });
+        dotsBox.appendChild(b);
+        return b;
+    });
+
+    function show(i) {
+        current = (i + slides.length) % slides.length;
+        slides.forEach((s, k) => s.classList.toggle('is-active', k === current));
+        dots.forEach((d, k) => d.classList.toggle('is-active', k === current));
+    }
+    function start() { if (!reduceMotion && slides.length > 1) timer = setInterval(() => show(current + 1), INTERVAL_MS); }
+    function stop() { clearInterval(timer); timer = null; }
+    function restart() { stop(); start(); }
+
+    root.querySelector('.prev').addEventListener('click', () => { show(current - 1); restart(); });
+    root.querySelector('.next').addEventListener('click', () => { show(current + 1); restart(); });
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+
+    // Basic swipe support on phones
+    let x0 = null;
+    root.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', e => {
+        if (x0 === null) return;
+        const dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) { show(current + (dx < 0 ? 1 : -1)); restart(); }
+        x0 = null;
+    });
+
+    // Hide a slide whose image is missing, so a forgotten upload doesn't show a broken image
+    function dropSlide(s) {
+        const idx = slides.indexOf(s);
+        if (idx < 0) return;
+        s.remove(); dots[idx].remove();
+        slides.splice(idx, 1); dots.splice(idx, 1);
+        if (slides.length) show(0); else root.remove();
+    }
+    slides.slice().forEach(s => {
+        const img = s.querySelector('img');
+        if (img.complete && img.naturalWidth === 0) dropSlide(s);   // already failed
+        else img.addEventListener('error', () => dropSlide(s));
+    });
+
+    show(0);
+    start();
+})();
+</script>
+
 </body>
 </html>

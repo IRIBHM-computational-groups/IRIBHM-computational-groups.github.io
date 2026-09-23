@@ -9,6 +9,7 @@
         <a href="{{ pub.doi }}" target="_blank" rel="noopener noreferrer">{{ pub.title }}</a>
         &nbsp;&mdash;&nbsp;{{ pub.year }}
         &nbsp;&mdash;&nbsp;<i>{{ pub.journal }}</i>
+        {% if pub.is_preprint %}<span class="preprint-tag">preprint</span>{% endif %}
         {% if pub.person %}
           &nbsp;(<small>{{ pub.person }}</small>)
         {% endif %}
