@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+
+{% block title %}Join us{% endblock %}
+
+{% block content %}
+<div class="join">
+{% if show_join %}
+
+    <!-- ===================== Position header ===================== -->
+    <section class="job-header">
+        <p class="eyebrow">Open position · Tarabichi lab</p>
+        <h1>PhD position in computational biology</h1>
+        <p class="job-lead">
+            We are seeking a highly motivated <strong>doctoral researcher in computational biology</strong>
+            to join the Tarabichi lab at IRIBHM, Université libre de Bruxelles (ULB). You will develop and
+            apply computational methods to human ’omics and tissue data to understand how normal cells
+            accumulate changes, how cancers arise from them, and how tumours evolve. The exact project
+            will be shaped with you, around the lab’s research axes and your interests.
+        </p>
+
+        <dl class="job-facts">
+            <div><dt>Contract</dt><dd>4 years, full-time</dd></div>
+            <div><dt>Start</dt><dd>Flexible, from November 2026</dd></div>
+            <div><dt>Location</dt><dd>Erasmus campus, Brussels</dd></div>
+            <div><dt>Supervisor</dt><dd><a href="maxime_tarabichi.html">Maxime Tarabichi</a></dd></div>
+        </dl>
+
+        <div class="hero-links">
+            <a class="pill" href="#apply">How to apply</a>
+            <a class="pill pill-outline" href="index.html">About our research</a>
+        </div>
+    </section>
+
+    <!-- ===================== Body ===================== -->
+    <div class="job-body">
+
+        <section>
+            <h2>What we offer</h2>
+            <p>
+                A <strong>4-year full-time doctoral position</strong> at
+                <a href="https://iribhm.org/">IRIBHM Jacques E. Dumont</a>, a leading interdisciplinary
+                biology institute of the Université libre de Bruxelles, Brussels, Belgium.
+                The PhD degree is awarded by ULB.
+            </p>
+            <ul>
+                <li>Competitive salary, following the <a href="https://www.frs-fnrs.be/fr/documents-utiles-rh">FNRS pay scale</a>.</li>
+                <li>Start date flexible, from November 2026; priority given to early applications.</li>
+                <li>Access to rich in-house and public datasets, such as whole-genome sequencing, single-cell and spatial transcriptomics, and digitised histology.</li>
+                <li>Our own <a href="hpc.html">high-performance computing infrastructure</a>, with documentation and support.</li>
+                <li>Close collaboration with wet-lab scientists, clinicians and pathologists, so that methods stay anchored in real patient material.</li>
+                <li>A tutor from day one, structured onboarding, and support to attend courses and international conferences.</li>
+                <li>Opportunities to supervise master students and to build a scientific network.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>The lab</h2>
+            <p>
+                The Tarabichi lab is a computational biology lab with a small wet-lab component, embedded in
+                the IRIBHM ecosystem. Our team brings together researchers trained in computer science,
+                mathematics, biology and bioinformatics, and generates much of the data its questions require.
+                Meet them on our <a href="people.html">people page</a>.
+            </p>
+            <p>
+                We have implemented the <a href="https://github.com/SAFE-Labs-Docs/Lab-Handbook">SAFE Labs Handbook</a>.
+                Our rules on lab culture, inclusion, organisation and opportunities are in our
+                <a href="guidelines.html">guidelines</a>.
+            </p>
+            <p>
+                The lab is on the Erasmus campus in Anderlecht, Brussels. The campus also hosts the
+                <a href="https://en.wikipedia.org/wiki/Erasmus_Hospital">largest hospital</a> in Brussels and the
+                <a href="https://www.bordet.be/en">Jules Bordet Institute</a>, a world-renowned cancer centre.
+            </p>
+        </section>
+
+        <section>
+            <h2>Possible research directions</h2>
+            <p>The PhD project will sit within one or more of the lab’s four research axes.</p>
+            <div class="job-axes">
+                <div>
+                    <h3><span aria-hidden="true">🧮</span> Cancer genomics &amp; somatic evolution</h3>
+                    <p>Calling mutations and copy-number changes, timing them, and modelling how tumours grow, including in inherited cancer predisposition.</p>
+                </div>
+                <div>
+                    <h3><span aria-hidden="true">🦋</span> Thyroid cancer</h3>
+                    <p>Evolution of papillary, anaplastic and medullary thyroid carcinomas, including radiation-induced cancers after Chernobyl, with patient-derived organoid models.</p>
+                </div>
+                <div>
+                    <h3><span aria-hidden="true">🧬</span> Cancer transcriptomics</h3>
+                    <p>Gene signatures, RNA editing, and spatial and single-nucleus transcriptomics.</p>
+                </div>
+                <div>
+                    <h3><span aria-hidden="true">🔬</span> Microanatomy &amp; AI histopathology</h3>
+                    <p>Deep learning and image registration to reconstruct tissues in 3D from serial histology sections.</p>
+                </div>
+            </div>
+            <p>See our <a href="publications.html">publications</a> for examples of our work.</p>
+        </section>
+
+        <section>
+            <h2>Profile</h2>
+            <ul>
+                <li>A master’s degree (or equivalent, obtained by the start date) in bioinformatics, computer science, mathematics, statistics, physics, engineering, or biology with strong quantitative training.</li>
+                <li>Programming experience in R and/or Python, and comfort working on the Linux command line.</li>
+                <li>Interest in cancer biology and evolution. Experience with sequencing data, statistical modelling, machine learning or image analysis is an advantage, but not required.</li>
+                <li>Fluent written and oral English. French is not required.</li>
+                <li>Good communication skills and a collaborative spirit; willing to work across teams, with biologists and clinicians, and to travel to collaborators.</li>
+                <li>Curiosity, rigour, and the drive to see a research question through.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Responsibilities</h2>
+            <dl class="job-duties">
+                <dt>Method development</dt>
+                <dd>Design, implement and benchmark algorithms, statistical models or machine-learning approaches for cancer ’omics or histology data.</dd>
+                <dt>Data analysis</dt>
+                <dd>Process and analyse large-scale sequencing and/or imaging datasets on our HPC infrastructure, from raw data to biological insight.</dd>
+                <dt>Reproducible research</dt>
+                <dd>Write well-documented, version-controlled code and release it as open-source tools and pipelines.</dd>
+                <dt>Collaboration</dt>
+                <dd>Work closely with wet-lab biologists, pathologists and clinicians to define questions and interpret results.</dd>
+                <dt>Communication</dt>
+                <dd>Present your work at lab meetings and international conferences, publish in peer-reviewed journals, and write your doctoral thesis.</dd>
+            </dl>
+        </section>
+
+        <section id="apply" class="job-apply">
+            <h2>How to apply</h2>
+            <p>
+                Send the following documents to
+                <a href="mailto:maxime.tarabichi@ulb.be?subject=PhD%20application%20%E2%80%93%20computational%20biology">maxime.tarabichi@ulb.be</a>,
+                with “PhD application – computational biology” in the subject line:
+            </p>
+            <ol>
+                <li>A CV, including your master’s transcripts and any publications or code (e.g. a GitHub link).</li>
+                <li>A cover letter (one page) outlining your motivation, relevant experience, and which research direction interests you most.</li>
+                <li>Contact information for at least two academic referees.</li>
+            </ol>
+            <p>
+                Applications are reviewed as they are received, and the position remains open until filled.
+                Shortlisted candidates may be invited to interview within a few weeks of applying.
+            </p>
+            <p>We encourage applications from people of all backgrounds.</p>
+            <a class="pill" href="mailto:maxime.tarabichi@ulb.be?subject=PhD%20application%20%E2%80%93%20computational%20biology">Email your application</a>
+        </section>
+
+    </div>
+{% else %}
+    <!-- Shown when SHOW_JOIN_ADVERT = False in generate_pages.ipynb, so old links don't break -->
+    <section class="job-header">
+        <h1>Join us</h1>
+        <p class="job-lead">
+            We have no open positions at the moment. If you are interested in joining the lab,
+            get in touch with one of our <a href="people.html">group leaders</a>.
+        </p>
+    </section>
+{% endif %}
+</div>
+{% endblock %}
