@@ -13,11 +13,19 @@
     {% endfor %}
 	</h3>
 	<div class='mini_logos'>
-	<a href="{{person.github}}" target="_blank">
+	{% if person.github %}
+	<a href="{{person.github}}" target="_blank" rel="noopener" title="GitHub">
 		<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"></a>
-	<a href="{{person.website}}" target="_blank"><img src="https://cdn.iconscout.com/icon/free/png-256/free-web-icon-download-in-svg-png-gif-file-formats--dripicons-pack-miscellaneous-icons-458408.png" alt="website"></a>
-	<a href="{{person.linkedin}}" target="_blank">  <img src="https://cdn.iconscout.com/icon/free/png-256/free-linkedin-logo-icon-download-in-svg-png-gif-file-formats--linked-media-social-pack-logos-icons-3649952.png" alt="LinkedIn">
-</a>
+	{% endif %}
+	{% if person.website %}
+	<a href="{{person.website}}" target="_blank" rel="noopener" title="Website"><img src="https://cdn.iconscout.com/icon/free/png-256/free-web-icon-download-in-svg-png-gif-file-formats--dripicons-pack-miscellaneous-icons-458408.png" alt="Website"></a>
+	{% endif %}
+	{% if person.linkedin %}
+	<a href="{{person.linkedin}}" target="_blank" rel="noopener" title="LinkedIn"><img src="https://cdn.iconscout.com/icon/free/png-256/free-linkedin-logo-icon-download-in-svg-png-gif-file-formats--linked-media-social-pack-logos-icons-3649952.png" alt="LinkedIn"></a>
+	{% endif %}
+	{% if person.bluesky %}
+	<a href="{{person.bluesky}}" target="_blank" rel="noopener" title="Bluesky"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11/icons/bluesky.svg" alt="Bluesky"></a>
+	{% endif %}
 	</div>
 </div>
 

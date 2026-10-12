@@ -1,3 +1,4 @@
+import re
 import requests
 import pandas as pd
 
@@ -58,15 +59,56 @@ def _resolve_author_ids(author):
         data = _get(f"{API}/authors", {"filter": f"orcid:{author}"})
         return [a["id"].split("/")[-1] for a in data.get("results", [])]
 
-    # Fall back to a name search (first hit only, as before)
-    data = _get(f"{API}/authors", {"search": author, "per_page": 1})
-    if not data.get("results"):
-        print(f"  !! no OpenAlex profile found for '{author}'")
+    # Name search, restricted to people who have published with one of our
+    # institutions. Without this, a common name (e.g. "Zhao Zhang") would pick
+    # up a namesake's hundreds of papers.
+    inst_ids = _institution_ids()
+    params = {"search": author, "per_page": 10}
+    if inst_ids:
+        params["filter"] = "affiliations.institution.id:" + "|".join(inst_ids)
+    data = _get(f"{API}/authors", params)
+    hits = data.get("results", [])
+    if not hits:
+        print(f"  !! no OpenAlex profile for '{author}' with a ULB/KU Leuven "
+              f"affiliation - skipped (add an ORCID or OpenAlex ID in people.csv)")
         return []
-    hit = data["results"][0]
-    print(f"  found by name: {hit['display_name']} ({hit['id']}) "
-          f"- consider pinning this ID in AUTHORS")
-    return [hit["id"].split("/")[-1]]
+    # Keep every profile whose name matches; OpenAlex often splits one person
+    wanted = _name_key(author)
+    matches = [h for h in hits if _name_key(h["display_name"]) == wanted] or hits[:1]
+    for h in matches:
+        print(f"  found by name: {h['display_name']} ({h['id'].split('/')[-1]}, "
+              f"{h.get('works_count', 0)} works)")
+    return [h["id"].split("/")[-1] for h in matches]
+
+
+# Institutions whose affiliation counts as "one of us" for name searches.
+# Searched by name once per run; add an entry if a member's papers are listed
+# under another affiliation (e.g. a hospital or a previous institute).
+INSTITUTIONS = [
+    "Université Libre de Bruxelles",
+    "KU Leuven",
+]
+_INSTITUTION_CACHE = None
+
+
+def _institution_ids():
+    global _INSTITUTION_CACHE
+    if _INSTITUTION_CACHE is None:
+        _INSTITUTION_CACHE = []
+        for name in INSTITUTIONS:
+            data = _get(f"{API}/institutions", {"search": name, "per_page": 1})
+            if data.get("results"):
+                inst = data["results"][0]
+                _INSTITUTION_CACHE.append(inst["id"].split("/")[-1])
+                print(f"Affiliation filter: {inst['display_name']} ({inst['id'].split('/')[-1]})")
+    return _INSTITUTION_CACHE
+
+
+def _name_key(name):
+    """Compare names ignoring accents, case, punctuation and word order."""
+    import unicodedata
+    name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    return " ".join(sorted(re.sub(r"[^a-z ]", " ", name.lower()).split()))
 
 
 def get_author_works(author, display_name=None, max_results=None):
